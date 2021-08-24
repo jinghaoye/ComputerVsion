@@ -1,0 +1,177 @@
+
+<!-- saved from url=(0081)https://www.cs.bu.edu/faculty/betke/cs585/restricted/cs585-homework-template.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title> CS585 Homework Template: HW[x] Student Name [xxx]  </title>
+<style>
+<!--
+body{
+font-family: 'Trebuchet MS', Verdana;
+}
+p{
+font-family: 'Trebuchet MS', Times;
+margin: 10px 10px 15px 20px;
+}
+h3{
+margin: 5px;
+}
+h2{
+margin: 10px;
+}
+h1{
+margin: 10px 0px 0px 20px;
+}
+div.main-body{
+align:center;
+margin: 30px;
+}
+hr{
+margin:20px 0px 20px 0px;
+}
+-->
+</style>
+</head>
+
+<body>
+<center>
+<a href="http://www.bu.edu/"><img border="0" src="bu-logo.gif" width="119" height="120"></a>
+</center>
+
+<h1>Assignment Title</h1>
+<p> 
+ CS 585 HW 1 <br>
+ Jinghao Ye <br>
+ Teammate: YuHang Sun <br>
+ Date : Feb 17
+</p>
+
+<div class="main-body">
+<hr>
+<h2> Problem Definition </h2>
+<p>
+We need to design and implement algorithms that recognize hand shapes or gestures, 
+and create a graphical display that responds to the recognition of the hand shapes or gestures.
+Thus we need to first extract the features of different guestures 
+and label them so that when we do the test with different guestures, we can compare futures of test gesture with our sample gestures.
+The result is useful becuase the gesture recognition have some interesting application. For example, we can use gesture as instructions to ask program do something.
+The anticipated difficulty is how we can get results with good accuracy.
+</p>
+
+<hr>
+<h2> Method and Implementation </h2>
+<p>
+  First, we need to extract the features of sample gestures. We choose the contour of gesture as the main feature.
+  We get the contour of each sample gesture and label them with feature name. When we present new gesture in front the camera, we get the the 
+  contour of testing gesture, and then compare the contour of testing gesture with all sample gesture. 
+  Therefore, we return the name of guesture which matchs the testing guesture most
+</p>
+
+<p>
+1. skin_detect() We use this function to convert our input image to binary image and then sperate our guesture with background.
+2. contour_detect() Next we use the guesture as input and find the contour of the guesture 
+3. gesture_detect() We use this function to compare our testing guestures with sample guesture.
+4. cv2. matchShapes() This function is an Opencv Built-in function which enables us to compare two shapes, or two contours and returns a metric showing the similarity. The lower the result, the better match it is. It is calculated based on the Hu moment values.
+</p>
+
+<hr>
+<h2>Experiments</h2>
+<p>
+There are 7 differnt gestures, and I test each gesture 5 times. The detection threshold is 0.2 </p>
+<p>
+<a><img src="confusion_matrix.png" width="300"></a></p>
+
+
+<hr>
+<h2> Results</h2>
+<p>
+
+<br>
+    <a href="https://youtu.be/xeqWw_RbnG0">Video
+    </a>
+</p>
+
+<p>
+<table>
+<tbody><tr><td colspan="3"><center><h3>Results</h3></center></td></tr>
+<tr>
+</tr>
+<tr>
+  <td> Fist </td> 
+  <td> <img src="fist(1).png" width="50%"> </td> 
+  <td> <img src="fist(2).png" width="50%"> </td>
+</tr> 
+<tr>
+  <td> One </td> 
+  <td> <img src="one(1).png" width="50%"> </td> 
+  <td> <img src="one(2).png" width="50%"> </td>
+</tr> 
+<tr>
+  <td> Two </td> 
+  <td> <img src="two(1).png" width="50%"> </td> 
+  <td> <img src="two(2).png" width="50%"> </td>
+</tr> 
+<tr>
+  <td> Three </td> 
+  <td> <img src="three(1).png" width="50%"> </td> 
+  <td> <img src="three(2).png" width="50%"> </td>
+</tr>
+<tr>
+  <td> Four </td> 
+  <td> <img src="four(1).png" width="50%"> </td> 
+  <td> <img src="four(2).png" width="50%"> </td>
+</tr>
+<tr>
+  <td> Five </td> 
+  <td> <img src="five(1).png" width="50%"> </td> 
+  <td> <img src="five(2).png" width="50%"> </td>
+</tr>
+<tr>
+  <td> Thumb Up </td> 
+  <td> <img src="thumb(1).png" width="50%"> </td> 
+  <td> <img src="thumb(2).png" width="50%"> </td>
+</tr>
+</tbody></table>
+</p>
+
+
+
+<hr>
+<h2> Discussion </h2>
+
+<p> 
+Discuss your method and results:
+</p><ul>
+<li>I think the strength of our method is easy to implement and weakness is the that the accuracy need to improve </li>
+<li>The method is generally successful. Again the limitation is the accuracy. Since we use our hand gesture as sample, if other one's hand is much bigger or smaller than our hand, the result could be wrong </li>
+<li>We may find another way to detect guesture rather than camparing the contour. For example, we could train a deep learning model to recognize different gesture</li> 
+</ul>
+<p></p>
+
+<hr>
+<h2> Conclusions </h2>
+
+<p>
+Detecing the guesture by contour is a basic method. Although it generally works, the high accurary cannot be guranteed 
+</p>
+
+
+<hr>
+<h2> Credits and Bibliography </h2>
+<p>
+CS 585 Lab2.
+CS 585 Lab3.
+
+<a href="https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_contours/py_contours_more_functions/py_contours_more_functions.html">opencv-python-tutroals
+    </a>
+</p>
+
+<p>
+Teammate: Yuhang Sun 
+</p>
+<hr>
+</div>
+
+
+
+
+
+</body></html>
